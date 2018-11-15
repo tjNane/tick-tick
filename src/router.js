@@ -12,7 +12,16 @@ export default new Router({
       redirect: '/index',
       name: 'index',
       children: [
-        { path: '/index', component: () => import('./views/index/index') }
+        { path: '/index', component: () => import('./views/index/index'), meta: { title: '首页' } }
+      ]
+    },
+    {
+      path: '/practise',
+      component: MainLayout,
+      redirect: '/practise',
+      name: 'practise',
+      children: [
+        { path: 'component', component: () => import('./views/practise/component'), meta: { title: '组件' } }
       ]
     }
   ]

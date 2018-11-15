@@ -34,10 +34,11 @@ export default {
   .main-container{
     position: absolute;
     top: 70px;
-    bottom: 0;
-    left: 200px;
-    right: 0;
-    background: wheat;
+    bottom: 20px;
+    left: 220px;
+    right: 20px;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, .1);
+    border-radius: 6px;
   }
 }
 </style>
