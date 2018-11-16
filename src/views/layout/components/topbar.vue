@@ -31,7 +31,7 @@ export default {
     width: 100%;
     height: 100%;
     border-radius: 6px;
-    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .1);
     display: flex;
     align-items: center;
     justify-content: space-between;
