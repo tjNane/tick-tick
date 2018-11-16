@@ -8,8 +8,8 @@
     </div>
     <div class="navs">
       <div v-for="(item, index) in filterRouter" :key="index" class="nav-item">
-        <div class="nav-item-title"><i :class="['iconfont', item.icon]"></i>{{item.meta.title}}</div>
-        <div class="nav-item-sub" v-for="(items, idx) in item.children" :key="idx">{{items.meta.title}}</div>
+        <div class="nav-item-title" @click="switchRouter(index, item.children[0].name)"><i :class="['iconfont', item.icon]"></i>{{item.meta.title}}</div>
+        <router-link tag="div" :to="{ name: sub.name }" :class="['nav-item-sub', { 'nav-item-sub-active': currentRouter == index}]" v-for="(sub, idx) in item.children" :key="idx">{{sub.meta.title}}</router-link>
       </div>
     </div>
   </div>
@@ -21,11 +21,9 @@ import { routes } from '@/router'
 export default {
   data () {
     return {
-      routes
+      routes,
+      currentRouter: -1
     }
-  },
-  mounted () {
-    this.ss()
   },
   computed: {
     filterRouter: function () {
@@ -33,8 +31,10 @@ export default {
     }
   },
   methods: {
-    ss () {
-      console.log(routes)
+    // 切换路由
+    switchRouter (index, name) {
+      this.currentRouter = index
+      this.$router.push({ name: name })
     }
   }
 }
@@ -79,6 +79,7 @@ export default {
       border-radius: 6px;
       margin-bottom: 10px;
       box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, .1);
+      overflow: hidden;
       div{
         height: 40px;
         line-height: 40px;
@@ -90,6 +91,8 @@ export default {
           border-bottom:1px solid #204d73;
         }
         &.nav-item-sub{
+          height: 0;
+          overflow: hidden;
           padding-left: 35px;
           border-bottom:1px solid #204d73;
           position: relative;
@@ -105,6 +108,9 @@ export default {
             bottom: 0;
             margin: auto;
           }
+          &.nav-item-sub-active{
+            height: auto;
+          }
           &:last-child{
             border: 0;
           }
@@ -115,5 +121,8 @@ export default {
       }
     }
   }
+}
+.router-link-active{
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, .3) inset;
 }
 </style>

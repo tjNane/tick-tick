@@ -23,8 +23,19 @@ export const routes = [
     icon: 't-keshilianxi',
     meta: { title: '练习' },
     children: [
-      { path: 'component', component: () => import('./views/practise/component'), meta: { title: '组件' } },
-      { path: 'circulation', component: () => import('./views/practise/circulation'), meta: { title: '列表渲染' } }
+      { path: 'component', name: 'component', component: () => import('./views/practise/component'), meta: { title: '组件' } },
+      { path: 'circulation', name: 'circulation', component: () => import('./views/practise/circulation'), meta: { title: '列表渲染' } }
+    ]
+  },
+  {
+    path: '/table',
+    component: MainLayout,
+    redirect: '/table',
+    name: 'table',
+    icon: 't-keshilianxi',
+    meta: { title: '表格' },
+    children: [
+      { path: 'common', name: 'common', component: () => import('./views/table/index'), meta: { title: '普通表格' } }
     ]
   }
 ]

@@ -3,7 +3,9 @@
     <sidebar></sidebar>
     <topbar></topbar>
     <div class="main-container">
-      <router-view></router-view>
+      <transition name="main">
+        <router-view></router-view>
+      </transition>
     </div>
   </div>
 </template>
@@ -40,6 +42,7 @@ export default {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .1);
     border-radius: 6px;
     padding: 20px;
+    overflow-y: scroll;
   }
 }
 </style>
