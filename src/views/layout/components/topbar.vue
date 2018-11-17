@@ -1,7 +1,11 @@
 <template>
   <div class="topbar">
     <div>
-      <div class="menu-btn"><i class="iconfont t-caidan"></i></div>
+      <div class="btn"><i class="iconfont t-menu"></i></div>
+      <div class="right-btns">
+        <div class="btn" @click="$router.push('/')"><i class="iconfont t-home"></i></div>
+        <div class="btn"><i class="iconfont t-onoff"></i></div>
+      </div>
     </div>
   </div>
 </template>
@@ -37,7 +41,7 @@ export default {
     justify-content: space-between;
     padding: 0 10px;
     box-sizing: border-box;
-    .menu-btn{
+    .btn{
       width: 40px;
       height: 40px;
       text-align: center;
@@ -46,9 +50,16 @@ export default {
       transition: .3s;
       color: $primary-color;
       cursor: pointer;
-      border: 1px solid transparent;
+      position: relative;
+      top: 0;
       &:hover{
-        border: 1px solid #eee;
+        top: -2px;
+      }
+    }
+    .right-btns{
+      display: flex;
+      .iconfont{
+        font-size: 20px;
       }
     }
   }

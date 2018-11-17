@@ -8,8 +8,10 @@
     </div>
     <div class="navs">
       <div v-for="(item, index) in filterRouter" :key="index" class="nav-item">
-        <div class="nav-item-title" @click="switchRouter(index, item.children[0].name)"><i :class="['iconfont', item.icon]"></i>{{item.meta.title}}</div>
-        <router-link tag="div" :to="{ name: sub.name }" :class="['nav-item-sub', { 'nav-item-sub-active': currentRouter == index}]" v-for="(sub, idx) in item.children" :key="idx">{{sub.meta.title}}</router-link>
+        <div class="nav-item-title" @click="switchRouter(item.children[0].name)"><i :class="['iconfont', item.icon]"></i>{{item.meta.title}}</div>
+        <template v-if="showIndex == index">
+          <router-link tag="div" :to="{ name: sub.name }" class="nav-item-sub" v-for="(sub, idx) in item.children" :key="idx">{{sub.meta.title}}</router-link>
+        </template>
       </div>
     </div>
   </div>
@@ -22,19 +24,40 @@ export default {
   data () {
     return {
       routes,
-      currentRouter: -1
+      currentRouter: '',
+      showIndex: -1
     }
   },
   computed: {
     filterRouter: function () {
-      return this.routes.filter(ele => ele.name !== 'index')
+      return this.routes.filter(ele => ele.name !== 'index' && !ele.hidden)
     }
   },
   methods: {
     // 切换路由
-    switchRouter (index, name) {
-      this.currentRouter = index
+    switchRouter (name) {
       this.$router.push({ name: name })
+    }
+  },
+  watch: {
+    // 监听路由变化
+    $route: {
+      handler (val) {
+        if (val.path === '/index') {
+          this.showIndex = -1
+          return
+        }
+        this.currentRouter = val.name
+        for (const router of this.filterRouter) {
+          for (const child of router.children) {
+            if (child.name === val.name) {
+              this.showIndex = this.filterRouter.indexOf(router)
+              return
+            }
+          }
+        }
+      },
+      immediate: true
     }
   }
 }
@@ -74,6 +97,8 @@ export default {
     padding: 10px;
     height: calc(100vh - 150px);
     box-sizing: border-box;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {display:none}
     .nav-item{
       background: $tint-color;
       border-radius: 6px;
@@ -91,7 +116,6 @@ export default {
           border-bottom:1px solid #204d73;
         }
         &.nav-item-sub{
-          height: 0;
           overflow: hidden;
           padding-left: 35px;
           border-bottom:1px solid #204d73;
@@ -107,9 +131,6 @@ export default {
             top: 0;
             bottom: 0;
             margin: auto;
-          }
-          &.nav-item-sub-active{
-            height: auto;
           }
           &:last-child{
             border: 0;

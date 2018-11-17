@@ -1,18 +1,27 @@
 <template>
   <div>
-    <title-panel name="组件1"></title-panel>
+    <title-panel name="数字输入框"></title-panel>
+    <input-number
+      v-model="value"
+      :max="10"
+      :min="5">
+    </input-number>
   </div>
 </template>
 
 <script>
 import TitlePanel from '@/components/TitlePanel.vue'
+import InputNumber from './InputNumber.vue'
 
 export default {
   components: {
-    TitlePanel
+    TitlePanel,
+    InputNumber
   },
   data () {
-    return {}
+    return {
+      value: 5
+    }
   }
 }
 </script>

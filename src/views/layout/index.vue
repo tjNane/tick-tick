@@ -43,6 +43,18 @@ export default {
     border-radius: 6px;
     padding: 20px;
     overflow-y: scroll;
+    &::-webkit-scrollbar{
+      width: 4px;
+      height: 4px;
+      background-color: #fff;
+    }
+    &::-webkit-scrollbar-track{
+      background-color: #fff;
+    }
+    &::-webkit-scrollbar-thumb{
+      border-radius: 2px;
+      background-color: $primary-color;
+    }
   }
 }
 </style>

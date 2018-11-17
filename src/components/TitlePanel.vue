@@ -17,13 +17,14 @@ export default {
 
 <style lang="scss" scoped>
 .tilte-panel{
-  width: 100px;
   height: 40px;
   padding: 0 10px;
   border-radius: 6px;
   background: $sup-color-ys;
-  border-left: 10px solid $sup-color-y;
+  border-left: 4px solid $sup-color-y;
   line-height: 40px;
   margin-bottom: 20px;
+  font-size: 14px;
+  color: rgb(250, 179, 1);
 }
 </style>
