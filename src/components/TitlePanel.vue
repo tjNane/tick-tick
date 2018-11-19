@@ -23,7 +23,7 @@ export default {
   background: $sup-color-ys;
   border-left: 4px solid $sup-color-y;
   line-height: 40px;
-  margin-bottom: 20px;
+  margin: 20px 0;
   font-size: 14px;
   color: rgb(250, 179, 1);
 }

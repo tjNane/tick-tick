@@ -3,7 +3,7 @@
     <sidebar></sidebar>
     <topbar></topbar>
     <div class="main-container">
-      <transition name="main">
+      <transition name="main" mode="out-in">
         <router-view></router-view>
       </transition>
     </div>

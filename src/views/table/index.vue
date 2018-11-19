@@ -1,5 +1,5 @@
 <template>
   <div>
-    222
+    table
   </div>
 </template>
