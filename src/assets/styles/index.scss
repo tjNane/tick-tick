@@ -10,3 +10,29 @@
   transform: translateX(20px);
   opacity: 0;
 }
+
+// 练习类目下的样式
+.practise-btn{
+  padding: 0 10px;
+  height: 30px;
+  background: white;
+  color: $primary-color;
+  border: 0;
+  outline: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+.practise-input{
+  border: 1px solid #dedede;
+  width: 200px;
+  height: 30px;
+  border-radius: 15px;
+  outline: 0;
+  text-indent: 10px;
+  line-height: 30px;
+  font-size: 14px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}

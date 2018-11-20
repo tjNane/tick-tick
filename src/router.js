@@ -26,7 +26,8 @@ export const routes = [
     children: [
       { path: 'component', name: 'component', component: () => import('./views/practise/component'), meta: { title: '组件' } },
       { path: 'filters', name: 'filters', component: () => import('./views/practise/filters'), meta: { title: '过滤器' } },
-      { path: 'directive', name: 'directive', component: () => import('./views/practise/directive'), meta: { title: '自定义指令' } }
+      { path: 'directive', name: 'directive', component: () => import('./views/practise/directive'), meta: { title: '自定义指令' } },
+      { path: 'vuex', name: 'vuex', component: () => import('./views/practise/vuex'), meta: { title: 'vuex' } }
     ]
   },
   {

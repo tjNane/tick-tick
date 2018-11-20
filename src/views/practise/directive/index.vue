@@ -2,12 +2,12 @@
   <div>
     <div>
       <title-panel name="自动聚焦"></title-panel>
-      <input type="text" class="inp" v-focus>
+      <input type="text" class="practise-input" v-focus>
     </div>
     <div>
       <title-panel name="改变颜色"></title-panel>
-      <div class="inp" v-changecolor="color">{{num}}</div>
-      <div @click="add" class="mt20 btn">add</div>
+      <div class="practise-input" v-changecolor="color">{{num}}</div>
+      <button @click="add" class="practise-btn mt20">add</button>
     </div>
   </div>
 </template>
@@ -65,29 +65,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.inp {
-  border: 1px solid #dedede;
-  width: 200px;
-  height: 30px;
-  border-radius: 15px;
-  outline: 0;
-  text-indent: 10px;
-  line-height: 30px;
-  font-size: 14px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-}
-.btn{
-  width: 100px;
-  height: 30px;
-  background: white;
-  color: $primary-color;
-  border: 0;
-  outline: 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
-}
-</style>
