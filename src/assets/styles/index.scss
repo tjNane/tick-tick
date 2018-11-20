@@ -1,9 +1,10 @@
 @import './normalize.scss';
 @import '../icons/iconfont.css';
+@import './/tool.scss';
 
 // 一些过度类名
 .main-enter-active, .main-leave-active {
-  transition: all .4s ease;
+  transition: all .3s ease;
 }
 .main-enter, .main-leave-to  {
   transform: translateX(20px);
