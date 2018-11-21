@@ -46,7 +46,7 @@ export default {
       componentUpdated: function () {
         console.log('4 - componentUpdated')
       },
-      unbind: function (){
+      unbind: function () {
         console.log('5 - unbind')
       }
     }
@@ -64,4 +64,3 @@ export default {
   }
 }
 </script>
-

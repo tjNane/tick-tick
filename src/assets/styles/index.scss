@@ -1,6 +1,7 @@
 @import './normalize.scss';
 @import '../icons/iconfont.css';
-@import './/tool.scss';
+@import './element-variables.scss';
+@import './tool.scss';
 
 // 一些过度类名
 .main-enter-active, .main-leave-active {

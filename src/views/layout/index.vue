@@ -39,6 +39,7 @@ export default {
     bottom: 20px;
     left: 220px;
     right: 20px;
+    background: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .1);
     border-radius: 6px;
     padding: 20px;
