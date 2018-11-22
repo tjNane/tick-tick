@@ -4,6 +4,7 @@
       <div class="left-area">
         <div class="btn"><i class="iconfont t-menu"></i></div>
         <el-breadcrumb separator="/" class="ml20">
+          <el-breadcrumb-item to="/index">首页</el-breadcrumb-item>
           <el-breadcrumb-item v-for="(item, index) in breadItems" :key="index" class="breadcrumbsss">{{item}}</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
