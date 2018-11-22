@@ -2,18 +2,18 @@
   <div>
     <div class="filter-item">
       <title-panel name="demo1(字符串转大写)"></title-panel>
-      <p><span>过滤前</span>{{msg}}</p>
-      <p><span>过滤后</span>{{ msg | stringToUpper }}</p>
+      <p><el-tag type="danger">过滤前</el-tag>{{msg}}</p>
+      <p><el-tag type="success">过滤后</el-tag>{{ msg | stringToUpper }}</p>
     </div>
     <div class="filter-item">
       <title-panel name="demo2(超过最大长度显示省略号)"></title-panel>
-      <p><span>过滤前</span>{{msg}}</p>
-      <p><span>过滤后</span>{{ msg | addEllipsis(10) }}</p>
+      <p><el-tag type="danger">过滤前</el-tag>{{msg}}</p>
+      <p><el-tag type="success">过滤后</el-tag>{{ msg | addEllipsis(10) }}</p>
     </div>
     <div class="filter-item">
       <title-panel name="demo3(格式化日期)"></title-panel>
-      <p><span>过滤前</span>{{formattingDate}}</p>
-      <p><span>过滤后</span>{{ formattingDate | formatDate }}</p>
+      <p><el-tag type="danger">过滤前</el-tag>{{formattingDate}}</p>
+      <p><el-tag type="success">过滤后</el-tag>{{ formattingDate | formatDate }}</p>
     </div>
   </div>
 </template>
@@ -55,10 +55,6 @@ export default {
 
 <style lang="scss" scoped>
 .filter-item span{
-  background: $primary-color;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 4px;
   margin-right: 10px;
 }
 </style>
