@@ -1,4 +1,5 @@
 module.exports = {
+  baseUrl: '/tick-web/',
   outputDir: 'dist',
   css: {
     loaderOptions: {

@@ -10,7 +10,7 @@
       <div v-for="(item, index) in filterRouter" :key="index" class="nav-item">
         <div class="nav-item-title" @click="switchRouter(item.children[0].name)"><i :class="['iconfont', item.icon]"></i>{{item.meta.title}}</div>
         <template v-if="showIndex == index">
-          <router-link tag="div" :to="{ name: sub.name }" class="nav-item-sub" v-for="(sub, idx) in item.children" :key="idx">{{sub.meta.title}}</router-link>
+          <router-link tag="div" :to="{ name: sub.name }" v-for="(sub, idx) in item.children" :key="idx" class="nav-item-sub">{{sub.meta.title}}</router-link>
         </template>
       </div>
     </div>

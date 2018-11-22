@@ -31,6 +31,17 @@ export const routes = [
     ]
   },
   {
+    path: '/icons',
+    component: MainLayout,
+    redirect: '/icons',
+    name: 'icons',
+    icon: 't-table',
+    meta: { title: '图标' },
+    children: [
+      { path: 'icons', name: 'iconfont', component: () => import('./views/icons/index'), meta: { title: 'iconfont' } }
+    ]
+  },
+  {
     path: '/table',
     component: MainLayout,
     redirect: '/table',
