@@ -12,7 +12,9 @@
         <el-tooltip effect="dark" content="主页" placement="bottom">
           <div class="btn" @click="$router.push('/')"><i class="iconfont t-home"></i></div>
         </el-tooltip>
-        <div class="btn"><i class="iconfont t-onoff"></i></div>
+        <el-tooltip effect="dark" content="退出" placement="bottom">
+          <div class="btn" @click="logout"><div class="btn"><i class="iconfont t-onoff"></i></div></div>
+        </el-tooltip>
       </div>
     </div>
   </div>
@@ -39,6 +41,17 @@ export default {
       },
       // 默认要执行一次
       immediate: true
+    }
+  },
+  methods: {
+    logout () {
+      this.$store.dispatch('logout').then(() => {
+        this.$message.success('退出成功')
+        this.$router.push('/login')
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000)
+      })
     }
   }
 }
