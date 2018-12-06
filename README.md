@@ -1,4 +1,4 @@
-# cli3-demo
+# tick-tick
 
 ## Project setup
 ```
