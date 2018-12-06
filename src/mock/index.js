@@ -1,5 +1,6 @@
 import Mock from 'mockjs'
 import loginAPI from './login'
+import tableAPI from './table'
 
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
 // https://github.com/nuysoft/Mock/issues/300
@@ -17,5 +18,8 @@ Mock.setup({
 
 // 登录相关
 Mock.mock(/\/login\/index/, 'post', loginAPI.loginByUsername)
-Mock.mock(/\/login\/logout/, 'post', loginAPI.logout)
-Mock.mock(/\/user\/info/, 'get', loginAPI.getUserInfo)
+Mock.mock(/\/login\/logout/, 'get', loginAPI.logout)
+Mock.mock(/\/user\/info/, 'post', loginAPI.getUserInfo)
+
+// 表格
+Mock.mock(/\/table\/index/, 'post', tableAPI.tableData)

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import store from '@/store'
 
-// 添加请求头
+// 添加请求设置
 const instance = axios.create({
   baseURL: '/',
   timeout: 30000
