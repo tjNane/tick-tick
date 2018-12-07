@@ -1,14 +1,13 @@
 <template>
   <div>
-    <el-table
-      :data="tableData"
-      stripe>
-      <el-table-column type="selection"></el-table-column>
+    <app-table
+      :promise="tableList"
+      showSelection>
       <el-table-column prop="date" label="日期"></el-table-column>
       <el-table-column prop="name" label="姓名"></el-table-column>
       <el-table-column prop="tel" label="电话"></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
-    </el-table>
+    </app-table>
   </div>
 </template>
 
@@ -18,19 +17,18 @@ import { tableData } from '@/api/table'
 export default {
   data () {
     return {
-      tableData: []
+      tableList: tableData
     }
   },
   mounted () {
-    this.getTableData()
-  },
-  methods: {
-    // 获取表格数据
-    getTableData () {
-      this.$http(tableData(), res => {
-        this.tableData = res.data
-      })
-    }
   }
+  // methods: {
+  //   // 获取表格数据
+  //   getTableData () {
+  //     this.$http(tableData(), res => {
+  //       this.tableData = res.data
+  //     })
+  //   }
+  // }
 }
 </script>
