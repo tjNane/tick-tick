@@ -18,19 +18,6 @@ export const routes = [
     ]
   },
   {
-    path: '/practise',
-    component: MainLayout,
-    redirect: '/practise',
-    name: 'practise',
-    icon: 't-practise',
-    meta: { title: '练习' },
-    children: [
-      { path: 'component', name: 'component', component: () => import('./views/practise/component'), meta: { title: '组件' } },
-      { path: 'filters', name: 'filters', component: () => import('./views/practise/filters'), meta: { title: '过滤器' } },
-      { path: 'directive', name: 'directive', component: () => import('./views/practise/directive'), meta: { title: '自定义指令' } }
-    ]
-  },
-  {
     path: '/icons',
     component: MainLayout,
     redirect: '/icons',
@@ -42,14 +29,14 @@ export const routes = [
     ]
   },
   {
-    path: '/table',
+    path: '/components',
     component: MainLayout,
-    redirect: '/table',
-    name: 'table',
+    redirect: '/components/table',
+    name: 'components',
     icon: 't-table',
-    meta: { title: '表格' },
+    meta: { title: '组件示例' },
     children: [
-      { path: 'common', name: 'common', component: () => import('./views/table/index'), meta: { title: '普通表格' } }
+      { path: 'table', name: 'table', component: () => import('./views/componentsDisplay/table'), meta: { title: '表格' } }
     ]
   },
   { path: '*', redirect: '/404', hidden: true }

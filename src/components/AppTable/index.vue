@@ -46,6 +46,16 @@
       </el-table-column>
       <slot></slot>
     </el-table>
+    <div class='pagination-container' v-if='showPage'>
+      <el-pagination
+      class='pagination'
+      @current-change='handleCurrentChange'
+      layout='total, prev, pager, next, jumper'
+      :total='total'
+      :current-page.sync='currentPage'
+      background>
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -61,7 +71,12 @@ export default {
       // 是否正在加载中
       listLoading: true,
       // 查询表单
-      queryForm: {}
+      queryForm: {
+        start: 0,
+        length: 10
+      },
+      // 当前页
+      currentPage: 1
     }
   },
   props: {
@@ -75,6 +90,11 @@ export default {
     // 用来获取promise方法的数据
     promise: {
       type: Function
+    },
+    // 是否显示分页
+    showPage: {
+      type: Boolean,
+      default: true
     },
     // 是否显示左边的选择框
     showSelection: {
@@ -107,7 +127,7 @@ export default {
     // 列的宽度是否自撑开
     fit: {
       type: Boolean,
-      dafault: true
+      default: true
     },
     // 是否显示表头
     showHeader: {
@@ -123,40 +143,51 @@ export default {
     currentRowKey: {
       type: [String, Number]
     },
+    // 行的 className 的回调
     rowClassName: {
       type: [Function, String]
     },
+    // 行的 className 的回调
     rowStyle: {
       type: [Function, Object]
     },
+    // 行数据的 Key
     rowKey: {
       type: [Function, String]
     },
+    // 空数据时显示的文本内容
     emptyText: {
       type: String,
       default: '暂无数据'
     },
+    // 是否默认展开所有行
     defaultExpandAll: {
       type: Boolean,
       default: false
     },
+    // 目前的展开行
     expandRowKeys: {
       type: Array
     },
+    // 默认的排序列的 prop 和顺序
     defaultSort: {
       type: Object
     },
+    // tooltip
     tooltipEffect: {
       type: String
     },
+    // 是否在表尾显示合计
     showSummary: {
       type: Boolean,
       default: false
     },
+    // 合计行第一列的文本
     sumText: {
       type: String,
       default: '合计'
     },
+    // 自定义的合计计算方法
     summaryMethod: {
       type: Function
     }
@@ -173,7 +204,7 @@ export default {
           this.listData = []
           if (res.data.length) {
             this.listData = res.data
-            // this.total = +res.n
+            this.total = +res.n
           }
         } else {
           this.$message.error('获取数据失败')
@@ -184,6 +215,17 @@ export default {
         this.listLoading = false
       })
     },
+    // 处理翻页的功能
+    handleCurrentChange (current) {
+      if (!this.data) {
+        this.queryForm.start = (current - 1) * this.queryForm.length
+        this.fetchData()
+      } else {
+        const start = (current - 1) * 10
+        this.listData = this.data.slice(start, start + this.queryForm.length)
+      }
+    },
+    // 下面是el-table自带方法
     select (selection, row) {
       this.$emit('select', selection, row)
     },
@@ -236,3 +278,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.app-table {
+  .pagination-container {
+    background-color: #fff;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+</style>

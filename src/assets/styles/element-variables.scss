@@ -4,3 +4,13 @@ $--color-primary: #17466E;
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
+
+// 表格
+.el-table thead {
+  color: #333;
+}
+
+.el-table__header-wrapper thead th {
+  color: #333;
+  background-color: #EDEFF2;
+}
