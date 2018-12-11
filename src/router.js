@@ -36,7 +36,8 @@ export const routes = [
     icon: 't-manage',
     meta: { title: '组件示例' },
     children: [
-      { path: 'table', name: 'table', component: () => import('./views/componentsDisplay/table'), meta: { title: '表格' } }
+      { path: 'table', name: 'table', component: () => import('./views/componentsDisplay/table'), meta: { title: '表格' } },
+      { path: 'rich-text', name: 'rich-text', component: () => import('./views/componentsDisplay/richText'), meta: { title: '富文本' } }
     ]
   },
   { path: '*', redirect: '/404', hidden: true }
