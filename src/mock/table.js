@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 
 export default {
   tableData () {
-    let n = 20
+    let n = 10
     let data = []
     for (let i = 0; i < n; i++) {
       data.push(Mock.mock({

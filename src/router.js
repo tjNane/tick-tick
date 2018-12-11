@@ -22,7 +22,7 @@ export const routes = [
     component: MainLayout,
     redirect: '/icons',
     name: 'icons',
-    icon: 't-table',
+    icon: 't-icon',
     meta: { title: '图标' },
     children: [
       { path: 'icons', name: 'iconfont', component: () => import('./views/icons/index'), meta: { title: 'iconfont' } }
@@ -33,7 +33,7 @@ export const routes = [
     component: MainLayout,
     redirect: '/components/table',
     name: 'components',
-    icon: 't-table',
+    icon: 't-manage',
     meta: { title: '组件示例' },
     children: [
       { path: 'table', name: 'table', component: () => import('./views/componentsDisplay/table'), meta: { title: '表格' } }

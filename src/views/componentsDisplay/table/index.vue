@@ -26,16 +26,6 @@ export default {
     return {
       tableList: tableData
     }
-  },
-  mounted () {
   }
-  // methods: {
-  //   // 获取表格数据
-  //   getTableData () {
-  //     this.$http(tableData(), res => {
-  //       this.tableData = res.data
-  //     })
-  //   }
-  // }
 }
 </script>
