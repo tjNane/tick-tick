@@ -37,7 +37,8 @@ export const routes = [
     meta: { title: '组件示例' },
     children: [
       { path: 'table', name: 'table', component: () => import('./views/componentsDisplay/table'), meta: { title: '表格' } },
-      { path: 'rich-text', name: 'rich-text', component: () => import('./views/componentsDisplay/richText'), meta: { title: '富文本' } }
+      { path: 'rich-text', name: 'rich-text', component: () => import('./views/componentsDisplay/richText'), meta: { title: '富文本' } },
+      { path: 'charts', name: 'charts', component: () => import('./views/componentsDisplay/charts'), meta: { title: '图表' } }
     ]
   },
   { path: '*', redirect: '/404', hidden: true }

@@ -1,5 +1,5 @@
 <template>
-  <div class="rich-text" :style="{ width, height }">
+  <div class="rich-text" :style="{ width, height }" v-loading="loading" element-loading-text="等我一下咯">
     <quill-editor
       v-model="editorValue"
       :style="{ height: `${parseInt(height) - 60}px` }"
@@ -36,6 +36,10 @@ export default {
     height: {
       type: String,
       default: '400px'
+    },
+    loading: {
+      type: Boolean,
+      default: false
     },
     options: {
       type: Object,
