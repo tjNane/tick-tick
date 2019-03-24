@@ -9,7 +9,7 @@
       <el-table-column prop="card" label="身份证"></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
       <el-table-column label="操作">
-        <template slot-scope="scope">
+        <template>
           <el-button size="mini">编辑</el-button>
           <el-button size="mini" type="danger">删除</el-button>
         </template>
